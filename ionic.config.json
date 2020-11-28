@@ -1,0 +1,7 @@
+{
+  "name": "ionic5-cap-starter",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
