@@ -18,18 +18,18 @@ export class AppComponent {
     private localeService: LocaleService
   ) {
     this.initializeApp();
-    this.initTranslation();
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.initTranslation();
     });
   }
 
   initTranslation() {
-    // Register all Locales in LocaleService
+    // Register all locales defined in the LocaleService
     this.localeService.registerLocales();
     // Get and Set Stored Locale
     this.localeService.getStoredLocale().then((value) => {

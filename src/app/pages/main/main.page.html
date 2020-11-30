@@ -1,18 +1,18 @@
 <ion-tabs #mainTabs>
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="home">
-      <ion-icon ariaLabel="Home" name="home"></ion-icon>
-      <ion-label aria-hidden="true">{{ 'HOME' | translate }}</ion-label>
+      <ion-icon ariaLabel="{{ 'HOME' | translate }}" name="home"></ion-icon>
+      <ion-label>{{ 'HOME' | translate }}</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="settings">
-      <ion-icon ariaLabel="Settings" name="settings"></ion-icon>
-      <ion-label aria-hidden="true">{{ 'SETTINGS' | translate }}</ion-label>
+      <ion-icon ariaLabel="{{ 'SETTINGS' | translate }}" name="settings"></ion-icon>
+      <ion-label>{{ 'SETTINGS' | translate }}</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="about">
-      <ion-icon ariaLabel="About" name="information-circle"></ion-icon>
-      <ion-label aria-hidden="true">{{ 'ABOUT' | translate }}</ion-label>
+      <ion-icon ariaLabel="{{ 'ABOUT' | translate }}" name="information-circle"></ion-icon>
+      <ion-label>{{ 'ABOUT' | translate }}</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { ElementRef, Injectable, Renderer2 } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import { StorageService } from './storage.service';
@@ -7,13 +7,16 @@ import { StorageService } from './storage.service';
   providedIn: 'root',
 })
 export class LocaleService {
-  // First one will be used as default
+  // First one will be used as DEFAULT
   locales = [
     { title: 'English', locale: 'en-US' },
     { title: 'Türkçe', locale: 'tr-TR' },
   ];
 
-  constructor(private translate: TranslateService, private storage: StorageService) {}
+  constructor(
+    private translate: TranslateService,
+    private storage: StorageService
+  ) {}
 
   getStoredLocale() {
     return this.storage.getItem('locale');
@@ -32,8 +35,8 @@ export class LocaleService {
   }
 
   registerLocales() {
-    this.locales.forEach(
-      item => import(`@angular/common/locales/${item.locale.substring(0, 2)}.js`).then((module) => registerLocaleData(module.default))
+    this.locales.forEach((item) =>
+      import(`@angular/common/locales/${item.locale.substring(0, 2)}.js`).then((module) => registerLocaleData(module.default))
     );
   }
 
