@@ -17,7 +17,8 @@ import { HeaderSubComponent } from './header-sub/header-sub.component';
   ],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+    TranslateModule
   ],
   exports: [
     CommonModule,

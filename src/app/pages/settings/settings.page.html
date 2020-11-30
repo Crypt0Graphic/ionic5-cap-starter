@@ -1,5 +1,25 @@
-<app-header title="SettingsT"></app-header>
+<app-header title="{{ 'SETTINGS' | translate }}"></app-header>
 
-<ion-content>
+<ion-content class="ion-padding-top">
+  <ion-item-group>
+    <ion-item>
+      <ion-label>{{ 'LANGUAGE' | translate }}</ion-label>
+      <ion-select
+        [(ngModel)]="locale"
+        (ionChange)="changeLocale($event)"
+        [interfaceOptions]="actionSheetOptionsLang"
+        interface="action-sheet"
+        placeholder="{{ 'SELECT' | translate }}"
+        cancelText="{{ 'CANCEL' | translate }}"
+      >
+        <ion-select-option *ngFor="let item of localeService.locales" value="{{item.locale}}">{{item.title}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-item-group>
+
+  <!-- Sample Values & Dynamic Pipe -->
+  <div class="ion-padding-top ion-text-center">
+    <ion-note>{{ date | date: 'mediumDate' : '' : translate.currentLang }} | {{ number | number : '' : translate.currentLang }}</ion-note>
+  </div>
 
 </ion-content>

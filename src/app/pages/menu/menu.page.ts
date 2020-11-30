@@ -11,12 +11,12 @@ export class MenuPage implements OnInit {
 
   pages = [
     {
-      title: 'MENÜ_T',
+      title: 'HOME',
       url: '/menu/main',
       icon: 'home'
     },
     {
-      title: 'GERİBİLDİRİM_T',
+      title: 'FEEDBACK',
       url: '/menu/feedback',
       icon: 'chatbox'
     }
