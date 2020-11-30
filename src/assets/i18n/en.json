@@ -7,6 +7,8 @@
   "PROFILE": "Profile",
   "SELECT": "Select",
   "SETTINGS": "Settings",
+  "THEME": "Theme",
+  "THEME_DARK": "Dark Mode",
   "MESSAGES": {
     "SAMPLE": "i"
   }

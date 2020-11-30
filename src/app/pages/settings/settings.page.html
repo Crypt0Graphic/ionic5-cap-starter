@@ -2,6 +2,12 @@
 
 <ion-content class="ion-padding-top">
   <ion-item-group>
+    <!-- Theme Toggle -->
+    <ion-item>
+      <ion-label>{{ 'THEME_DARK' | translate }}</ion-label>
+      <ion-toggle [(ngModel)]="isDark" (ionChange)="changeTheme($event)"></ion-toggle>
+    </ion-item>
+    <!-- Language Select -->
     <ion-item>
       <ion-label>{{ 'LANGUAGE' | translate }}</ion-label>
       <ion-select

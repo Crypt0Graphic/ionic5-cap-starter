@@ -1,4 +1,4 @@
-import { ElementRef, Injectable, Renderer2 } from '@angular/core';
+import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import { StorageService } from './storage.service';
@@ -13,10 +13,15 @@ export class LocaleService {
     { title: 'Türkçe', locale: 'tr-TR' },
   ];
 
+  private renderer: Renderer2;
+
   constructor(
     private translate: TranslateService,
-    private storage: StorageService
-  ) {}
+    private storage: StorageService,
+    public rendererFactory: RendererFactory2
+  ) {
+    this.renderer = rendererFactory.createRenderer(null, null);
+  }
 
   getStoredLocale() {
     return this.storage.getItem('locale');
@@ -24,13 +29,13 @@ export class LocaleService {
 
   setDefault() {
     this.translate.use(this.locales[0].locale.substring(0, 2));
-    this.updateHtmlLanguage(this.locales[0].locale.substring(0, 2));
+    this.updateHtmlLang(this.locales[0].locale.substring(0, 2));
     this.storage.setItem('locale', this.locales[0].locale);
   }
 
   setLang(locale: string) {
     this.translate.use(locale.substring(0, 2));
-    this.updateHtmlLanguage(locale.substring(0, 2));
+    this.updateHtmlLang(locale.substring(0, 2));
     this.storage.setItem('locale', locale);
   }
 
@@ -41,8 +46,7 @@ export class LocaleService {
   }
 
   // For special characters (For example Turkish "ı" Css Uppercase make it "İ" but should be "I")
-  // TODO: Don't use getElementsByTagName. Use Angular way.
-  updateHtmlLanguage(locale): void {
-    document.getElementsByTagName('html')[0].setAttribute('lang', locale);
+  updateHtmlLang(locale): void {
+    this.renderer.setAttribute(document.body.parentNode, 'lang', locale);
   }
 }
