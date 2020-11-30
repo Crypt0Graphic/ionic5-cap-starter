@@ -27,6 +27,16 @@ export class LocaleService {
     return this.storage.getItem('locale');
   }
 
+  setStoredLocale() {
+    this.storage.getItem('locale').then((value) => {
+      if (value) {
+        this.setLang(value);
+      } else {
+        this.setDefault();
+      }
+    });
+  }
+
   setDefault() {
     this.translate.use(this.locales[0].locale.substring(0, 2));
     this.updateHtmlLang(this.locales[0].locale.substring(0, 2));

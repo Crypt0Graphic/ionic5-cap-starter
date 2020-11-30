@@ -19,9 +19,9 @@ export class ThemeService {
 
   setStoredTheme() {
     this.storage.getItem('theme').then((value) => {
-      value === 'dark'
-        ? this.renderer.setAttribute(document.body, 'color-theme', 'dark')
-        : this.renderer.setAttribute(document.body, 'color-theme', 'light');
+      if (value === 'dark') {
+        this.renderer.setAttribute(document.body, 'color-theme', 'dark');
+      } // No need to else. Without attribute default light works.
     });
   }
 

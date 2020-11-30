@@ -33,13 +33,7 @@ export class AppComponent {
     // Register all locales defined in the LocaleService
     this.localeService.registerLocales();
     // Get and Set Stored Locale
-    this.localeService.getStoredLocale().then((value) => {
-      if (value) {
-        this.localeService.setLang(value);
-      } else {
-        this.localeService.setDefault();
-      }
-    });
+    this.localeService.setStoredLocale();
   }
 
   initTheme() {
