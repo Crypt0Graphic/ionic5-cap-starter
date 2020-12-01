@@ -11,7 +11,7 @@
 
 ```
 npm i
-npm i & ionic s
+ionic s
 ```
 
 ## On Device:
