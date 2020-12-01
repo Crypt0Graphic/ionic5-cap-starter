@@ -1,13 +1,13 @@
-Ionic 5 with Capacitor & Angular
+# Ionic 5 Starter with Capacitor & Angular
 
 Tabs with Menu, Translate & Dark Theme
 
-To Run:
+## To Run:
 
 npm i
 ionic s
 
-On Device:
+## On Device:
 
 ionic cap add ios
 ionic cap build ios
