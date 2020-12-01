@@ -18,7 +18,7 @@
             routerDirection="forward"
             [class.active-item]="selectedPath.startsWith(p.url)"
           >
-            <ion-icon ariaLabel="{{ p.title | translate }}"  slot="start" [name]="p.icon"></ion-icon>
+            <ion-icon ariaLabel="{{ p.title | translate }}"  slot="start" [name]="p.icon" color="secondary"></ion-icon>
             <ion-label> {{ p.title | translate }}</ion-label>
           </ion-item>
         </ion-menu-toggle>
